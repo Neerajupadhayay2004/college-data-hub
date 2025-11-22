@@ -18,6 +18,7 @@ export function SubjectForm({ onAdd, teachers }: SubjectFormProps) {
   const [year, setYear] = useState(1);
   const [section, setSection] = useState('A');
   const [teacherId, setTeacherId] = useState('');
+  const [room, setRoom] = useState('');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -29,13 +30,15 @@ export function SubjectForm({ onAdd, teachers }: SubjectFormProps) {
       hoursPerWeek: hours,
       year,
       section,
-      teacherId: teacherId || undefined
+      teacherId: teacherId || undefined,
+      room: room || undefined
     };
 
     onAdd(subject);
     setName('');
     setCode('');
     setHours(4);
+    setRoom('');
   };
 
   return (
@@ -123,6 +126,17 @@ export function SubjectForm({ onAdd, teachers }: SubjectFormProps) {
               ))}
             </SelectContent>
           </Select>
+        </div>
+
+        <div>
+          <Label htmlFor="room" className="text-foreground">Room (Optional)</Label>
+          <Input
+            id="room"
+            value={room}
+            onChange={(e) => setRoom(e.target.value)}
+            placeholder="e.g., Room 101, Lab A"
+            className="bg-card border-border"
+          />
         </div>
 
         <Button type="submit" className="w-full">

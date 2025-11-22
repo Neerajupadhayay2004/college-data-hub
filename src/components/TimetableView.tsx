@@ -80,6 +80,11 @@ export function TimetableView({ schedule, subjects, teachers, year, section }: T
                           <div className="text-xs text-center text-muted-foreground">
                             {getTeacherName(entry.teacherId)}
                           </div>
+                          {entry.room && (
+                            <div className="text-xs text-center text-primary font-medium">
+                              📍 {entry.room}
+                            </div>
+                          )}
                         </div>
                       ) : (
                         <div className="text-center text-muted-foreground text-xs">-</div>
