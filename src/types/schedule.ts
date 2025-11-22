@@ -14,6 +14,7 @@ export interface Subject {
   year: number;
   section: string;
   teacherId?: string;
+  room?: string;
 }
 
 export interface TimeSlot {
@@ -30,6 +31,7 @@ export interface ScheduleEntry {
   year: number;
   section: string;
   timeSlot: TimeSlot;
+  room?: string;
 }
 
 export interface College {
